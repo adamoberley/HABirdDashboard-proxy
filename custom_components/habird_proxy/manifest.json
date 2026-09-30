@@ -1,0 +1,14 @@
+{
+  "domain": "habird_proxy",
+  "name": "Bird Card Proxy",
+  "codeowners": ["@adamoberley"],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/adamoberley/HABirdDashboard-proxy",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/adamoberley/HABirdDashboard-proxy/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.1.0"
+}

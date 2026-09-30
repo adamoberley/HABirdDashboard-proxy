@@ -1,0 +1,45 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to BirdNET-Go",
+        "description": "Bird Card will reach BirdNET-Go through Home Assistant, so recordings and live detections work anywhere Home Assistant does. Enter the address Home Assistant itself uses to reach BirdNET-Go.",
+        "data": {
+          "url": "BirdNET-Go URL",
+          "api_token": "API token (optional)",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "For example http://192.168.1.50:8080, or http://db21ed7f-birdnet-go:8080 for the BirdNET-Go add-on on Home Assistant OS.",
+          "api_token": "Only needed if BirdNET-Go's Private Mode is on. It stays in Home Assistant and is never sent to the browser.",
+          "verify_ssl": "Turn off only for an https:// address with a self-signed certificate."
+        }
+      },
+      "reconfigure": {
+        "title": "Change the BirdNET-Go connection",
+        "data": {
+          "url": "BirdNET-Go URL",
+          "api_token": "API token (optional)",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "The address Home Assistant uses to reach BirdNET-Go.",
+          "api_token": "Only needed if BirdNET-Go's Private Mode is on.",
+          "verify_ssl": "Turn off only for an https:// address with a self-signed certificate."
+        }
+      }
+    },
+    "error": {
+      "invalid_url": "Enter an http:// or https:// address, like http://192.168.1.50:8080.",
+      "cannot_connect": "Home Assistant couldn't reach that address. Check the host and port from the Home Assistant machine itself.",
+      "ssl_error": "The SSL certificate couldn't be verified. Turn off certificate verification for a self-signed certificate.",
+      "not_birdnet_go": "Something answered, but it doesn't look like BirdNET-Go's API.",
+      "needs_token": "BirdNET-Go asked for sign-in (Private Mode). Add an API token from BirdNET-Go's settings.",
+      "invalid_auth": "BirdNET-Go rejected that API token."
+    },
+    "abort": {
+      "single_instance_allowed": "Bird Card Proxy is already set up.",
+      "reconfigure_successful": "The BirdNET-Go connection was updated."
+    }
+  }
+}
