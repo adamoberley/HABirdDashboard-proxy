@@ -21,10 +21,14 @@ over MQTT.
 
 | Your setup | Without the proxy | With the proxy |
 |---|---|---|
-| At home, `http://` dashboard | Everything works | Everything works |
-| Home Assistant OS with the BirdNET-Go add-on, `https://` or Nabu Casa | Works through add-on ingress (admin users) | Works for every user |
+| At home, `http://` dashboard | Everything except the "not it?" review | Everything works |
+| Any `https://` dashboard, including Nabu Casa | Birds via MQTT, **no recordings** | Everything works |
 | Home Assistant in Docker / Core, away from home | Birds via MQTT, **no recordings** | Everything works |
 | On a VPN where BirdNET-Go's hostname doesn't resolve | Birds via MQTT, **no recordings** | Everything works |
+
+Since Bird Card 1.10.0 the card no longer goes through the BirdNET-Go
+add-on's ingress, so on Home Assistant OS over `https://` this proxy is
+now the way to get recordings and the review button.
 
 If everything already works for you, you don't need this.
 
@@ -63,8 +67,7 @@ and Home Assistant forwards each request to the BirdNET-Go you configured.
   API. Paths are validated, so it can't be used to reach anything else on
   your network.
 - **It's read-only, with one exception:** the card's "not it?" detection
-  review, which only admin users can send (the same rule as Home Assistant
-  add-on ingress). Settings and everything else in BirdNET-Go can't be
+  review, which only Home Assistant admin users can send. Settings and everything else in BirdNET-Go can't be
   changed through it.
 - **Your Home Assistant login and cookies are never forwarded** to
   BirdNET-Go. The BirdNET-Go token, if you set one, is added by Home
